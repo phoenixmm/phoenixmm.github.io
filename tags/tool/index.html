@@ -2,14 +2,14 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>Archives: 2019/8 - Coder on road</title>
+<title>Tag: tool - Coder on road</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Coder on road">
-<meta property="og:url" content="https://phoenixmm.github.io/archives/2019/08/index.html">
+<meta property="og:url" content="https://phoenixmm.github.io/tags/tool/index.html">
 <meta property="og:site_name" content="Coder on road">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="https://phoenixmm.github.io/images/og_image.png">
@@ -134,63 +134,159 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-
-<div class="card widget">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        August 2019
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-08-07T10:22:59.000Z">2019-08-07</time>
-                        <a href="/2019/08/07/hexo写博客发布到github教程/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo写博客发布到个人github教程</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-08-07T10:15:59.000Z">2019-08-07</time>
-                        <a href="/2019/08/07/tools-wiki/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tools wiki</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-08-07T10:00:59.000Z">2019-08-07</time>
-                        <a href="/2019/08/07/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-        </div>
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">Tags</a></li>
+            <li class="is-active"><a href="#" aria-current="page">tool</a></li>
+        </ul>
+        </nav>
     </div>
 </div>
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-07T10:22:59.000Z">2019-08-07</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    24 minutes read (About 3592 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/07/hexo写博客发布到github教程/">hexo写博客发布到个人github教程</a>
+            
+        </h1>
+        <div class="content">
+            <p>目录</p>
+<ul>
+<li><a href="#前言">前言</a><ul>
+<li><a href="#准备工作">准备工作</a></li>
+</ul>
+</li>
+<li><a href="#搭建github博客">搭建github博客</a><ul>
+<li><a href="#创建仓库">创建仓库</a></li>
+<li><a href="#绑定域名">绑定域名</a></li>
+</ul>
+</li>
+<li><a href="#配置ssh-key">配置SSH key</a><ul>
+<li><a href="#测试是否成功">测试是否成功</a></li>
+</ul>
+</li>
+<li><a href="#使用hexo写博客">使用hexo写博客</a><ul>
+<li><a href="#hexo简介">hexo简介</a></li>
+<li><a href="#原理">原理</a></li>
+<li><a href="#注意事项">注意事项</a></li>
+<li><a href="#安装">安装</a></li>
+<li><a href="#初始化">初始化</a></li>
+<li><a href="#修改主题">修改主题</a></li>
+<li><a href="#上传之前">上传之前</a></li>
+<li><a href="#上传到github">上传到github</a></li>
+<li><a href="#保留cnamereadme.md等文件">保留CNAME、README.md等文件</a></li>
+<li><a href="#常用hexo命令">常用hexo命令</a></li>
+<li>[_](#config.yml)[config.yml]</li>
+<li><a href="#写博客">写博客</a><ul>
+<li><a href="#写博客工具">写博客工具</a></li>
+<li><a href="#如何让博文列表不显示全部内容">如何让博文列表不显示全部内容</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#最终效果">最终效果</a></li>
+<li><a href="#参考">参考</a></li>
+</ul>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/08/07/hexo写博客发布到github教程/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-07T10:15:59.000Z">2019-08-07</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 minutes read (About 1827 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/07/tools-wiki/">Tools wiki</a>
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li><a href="#在线开发工具">在线开发工具</a></li>
+<li><a href="#准备工作">准备工作</a></li>
+<li><a href="#搭建github博客">搭建github博客</a></li>
+<li><a href="#创建仓库">创建仓库</a></li>
+</ul>
+<h1 id="在线开发工具"><a href="#在线开发工具" class="headerlink" title="在线开发工具"></a>在线开发工具</h1><p><a href="http://www.atoolbox.net/Category.php?Id=28" target="_blank" rel="noopener">好用的在线工具：加密,格式化，转码，换算</a></p>
+<h1 id="insert-pic-base64-is-best"><a href="#insert-pic-base64-is-best" class="headerlink" title="insert pic (base64 is best)"></a>insert pic (base64 is best)</h1><h2 id="with-local-pic"><a href="#with-local-pic" class="headerlink" title="with local pic"></a>with local pic</h2><p><img src="Y1.jpg" alt="标签" title="标题"><br><img src="/Users/cjf_imac/sohu_src/github/hexo4phoenixmm/source/_posts/Y1.jpg" alt="avatar"><br><img src="Y1.jpg" alt="avatar"><br><img src="textnut-demo.png" alt="示例图片"></p>
+<h2 id="with-online-pic"><a href="#with-online-pic" class="headerlink" title="with online pic"></a>with online pic</h2><p><img src="http://pics1.baidu.com/feed/7e3e6709c93d70cfa4dd7f9de9defe05baa12b06.jpeg?token=7e533f78635e2872a39c94f0fef087ab&s=EDA59F54C6D247DE9E0468080300A0D0" alt="avatar"></p>
+<p><img src="http://b-ssl.duitang.com/uploads/item/201807/08/20180708223327_jswrq.thumb.700_0.gif" alt="avatar"><br><img src="http://wx1.sinaimg.cn/orj480/67d2c050ly1g5363kpj3jj20qo0f1472.jpg" alt="示例图片"><br><img src="https://b-ssl.duitang.com/uploads/item/201807/08/20180708223327_jswrq.thumb.700_0.gif" alt="示例图片"></p>
+<h2 id="with-base64-pic"><a href="#with-base64-pic" class="headerlink" title="with base64 pic"></a>with base64 pic</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![avatar](base64str1）</span><br><span class="line">[base64str1]:data:image/png;base64,iVBORw0......</span><br></pre></td></tr></table></figure>
+
+<p><img src="base64str" alt="avatar"></p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/08/07/tools-wiki/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
 
 
 </div>
