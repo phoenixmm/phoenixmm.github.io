@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="实践的详细步骤">
-<meta name="keywords" content="hexo; github">
+<meta name="keywords" content="hexo,github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo+githubda搭建个人博客教程">
 <meta property="og:url" content="https://phoenixmm.github.io/2019/08/07/hexo写博客发布到github教程/index.html">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="实践的详细步骤">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://phoenixmm.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-08T09:18:30.598Z">
+<meta property="og:updated_time" content="2019-08-08T09:25:20.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+githubda搭建个人博客教程">
 <meta name="twitter:description" content="实践的详细步骤">
@@ -356,7 +356,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/hexo-github/">hexo; github</a>
+                    <a class="has-link-grey -link" href="/tags/github/">github</a>, <a class="has-link-grey -link" href="/tags/hexo/">hexo</a>
                 </div>
             </div>
         </div>
@@ -374,28 +374,47 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
         <div class="buttons is-centered">
             
                 
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/images/Y4.jpeg" alt="Alipay"></div>
+</a>
 
                 
                 
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/images/Y4.jpeg" alt="Wechat"></div>
+</a>
 
                 
                 <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
 
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations">
+    <input type="hidden" name="business" value="/images/Y4.jpeg">
+    <input type="hidden" name="currency_code" value="USD">
+</form>
 
                 
                 
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
+<a class="button is-danger donate" href="/images/Y4.jpeg" target="_blank">
+    <span class="icon is-small">
+        <i class="fab fa-patreon"></i>
+    </span>
+    <span>Patreon</span>
+</a>
 
                 
         </div>
@@ -489,7 +508,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        8
                     </p>
                 </div>
             </div>
@@ -622,7 +641,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/android-aosp/" style="font-size: 10px;">android; aosp</a> <a href="/tags/android-handler/" style="font-size: 10px;">android; handler</a> <a href="/tags/hexo-github/" style="font-size: 10px;">hexo; github</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/test-demo/" style="font-size: 10px;">test; demo</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a>
+        <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/aosp/" style="font-size: 10px;">aosp</a> <a href="/tags/demo/" style="font-size: 10px;">demo</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/handler/" style="font-size: 10px;">handler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/test/" style="font-size: 20px;">test</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a>
     </div>
 </div>
 
@@ -769,22 +788,43 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/android-aosp/">
-                        <span class="tag">android; aosp</span>
+                    <a class="tags has-addons" href="/tags/android/">
+                        <span class="tag">android</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/aosp/">
+                        <span class="tag">aosp</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/android-handler/">
-                        <span class="tag">android; handler</span>
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/hexo-github/">
-                        <span class="tag">hexo; github</span>
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/handler/">
+                        <span class="tag">handler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -792,14 +832,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
                 <div class="control">
                     <a class="tags has-addons" href="/tags/test/">
                         <span class="tag">test</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/test-demo/">
-                        <span class="tag">test; demo</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -965,22 +998,43 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/android-aosp/">
-                        <span class="tag">android; aosp</span>
+                    <a class="tags has-addons" href="/tags/android/">
+                        <span class="tag">android</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/aosp/">
+                        <span class="tag">aosp</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/android-handler/">
-                        <span class="tag">android; handler</span>
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/hexo-github/">
-                        <span class="tag">hexo; github</span>
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/handler/">
+                        <span class="tag">handler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -988,14 +1042,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
                 <div class="control">
                     <a class="tags has-addons" href="/tags/test/">
                         <span class="tag">test</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/test-demo/">
-                        <span class="tag">test; demo</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
