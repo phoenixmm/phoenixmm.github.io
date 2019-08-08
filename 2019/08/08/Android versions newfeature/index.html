@@ -16,7 +16,7 @@
 <meta property="og:description" content="Android各版本引入的新特性">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://phoenixmm.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-08T09:50:30.614Z">
+<meta property="og:updated_time" content="2019-08-08T10:02:31.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android All Versions new features">
 <meta name="twitter:description" content="Android各版本引入的新特性">
@@ -297,15 +297,41 @@
 <li>媒体变更</li>
 <li>Native libraries</li>
 <li>其他</li>
+<li><ol>
+<li>ContentProvider 支持分页，即获取内容的选中区域的子集；</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>ContentProvider 和 ContentResolver 增加 refresh 方法，用来让客户端更容易的知道数据是不是最新；</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>JobScheduler 更新，让应用更容易遵从后台执行限制；</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>集合的处理的变化，AbstractCollection.removeAll() 和 AbstractCollection.retainAll() 始终引发 NullPointerException；</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>语言区域和国际化变化(<a href="https://developer.android.com/preview/behavior-changes.html#lai)；" target="_blank" rel="noopener">https://developer.android.com/preview/behavior-changes.html#lai)；</a></li>
+</ol>
+</li>
+<li><ol start="6">
+<li>联系人提供程序使用情况统计方法的变更(<a href="https://developer.android.com/preview/behavior-changes.html#cpu)；" target="_blank" rel="noopener">https://developer.android.com/preview/behavior-changes.html#cpu)；</a></li>
+</ol>
+</li>
+<li><ol start="7">
+<li>蓝牙 ScanRecord.getBytes() 方法检索的数据长度变更(<a href="https://developer.android.com/preview/behavior-changes.html#bt)；" target="_blank" rel="noopener">https://developer.android.com/preview/behavior-changes.html#bt)；</a></li>
+</ol>
+</li>
+<li><ol start="8">
+<li>输入和导航(<a href="https://developer.android.com/preview/behavior-changes.html#ian)；" target="_blank" rel="noopener">https://developer.android.com/preview/behavior-changes.html#ian)；</a></li>
+</ol>
+</li>
 </ul>
 </blockquote>
 </li>
-</ol>
-</blockquote>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    1. ContentProvider 支持分页，即获取内容的选中区域的子集；</span><br><span class="line">2. ContentProvider 和 ContentResolver 增加 refresh 方法，用来让客户端更容易的知道数据是不是最新；</span><br><span class="line">	3. JobScheduler 更新，让应用更容易遵从后台执行限制；</span><br><span class="line">4. 集合的处理的变化，AbstractCollection.removeAll() 和 AbstractCollection.retainAll() 始终引发 NullPointerException；</span><br><span class="line">5. 语言区域和国际化变化(https://developer.android.com/preview/behavior-changes.html#lai)；</span><br><span class="line">6. 联系人提供程序使用情况统计方法的变更(https://developer.android.com/preview/behavior-changes.html#cpu)；</span><br><span class="line">7. 蓝牙 ScanRecord.getBytes() 方法检索的数据长度变更(https://developer.android.com/preview/behavior-changes.html#bt)；</span><br><span class="line">	8. 输入和导航(https://developer.android.com/preview/behavior-changes.html#ian)；</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<ol start="11">
 <li>API 变更<blockquote>
 <ul>
 <li>WebView 新 API</li>
@@ -320,101 +346,215 @@
 </blockquote>
 <h1 id="Android9-0"><a href="#Android9-0" class="headerlink" title="Android9.0"></a>Android9.0</h1><blockquote>
 <ol>
-<li>全面屏的全面支持**</li>
-</ol>
-<p><strong>**     加入了对刘海屏的支持（谷歌称之为凹口屏幕（display with a cutout）。借助最新的提供的DisplayCutout类，开发者可以找到非功能区域的位置和形状，而非功能区域是不应显示功能的；使用getDisplayCutout（）就可以获取这个区域的详细信息，未来刘海屏手机很有可能成为主流趋势，在前摄像头没有比较好的隐藏方案出现之前，这可能是提高屏占比的好方法。<br>（屏占比=屏幕面积/整机面积）<br>2.New gesture navigation(新的手势导航栏)</strong><br>       引入了一种新的基于手势的系统界面，界面下方会有一个小的横线式主屏键，有点类似于iPhone X的手势操作，很多操作逻辑与iPhone X相似、但更人性化，相对来说，iPhone X的“横线”只是个摆设式的提醒UI，而Android 9.0 Pie则赋予它真正的操作能力。在椭圆指示器上滑动可以作为滚动条，但是在新的导航条上仍然有一个返回键。向右滑动可以访问最近的应用，或者向上滑动可以访问你的应用抽屉和应用建议。它在Pixel手机上非常流畅。切换到以前的应用程序，在浏览窗口后，在底部添加一个滑块。<br>3.自适应功能**<br>     Adaptive Battery（电量自适应）：更智能的方式来适应电池和屏幕，从而整体改善续航能力。谷歌加入了Adaptive Battery功能，不过这个模式需要单独开启，在该模式下，程序不需要唤醒可以极大的降低资源占用，更关注用户最常用的服务和应用程序，也算是AI技术的应用之一。这样就可以最大限度的降低后台占用，从而提升电池续航能力。这是Android团队与Google DeepMiind团队合作开发的成果，不仅可以预测用户接下来几个小时内将使用的应用程序，而且还包括在当天用户何时会使用哪些应用程序。智能的一种应用。<br>     Adaptive brightness（亮度自适应）:亮度方面也进行了人工智能升级，通常情况下用户需要手动调节，或者通过光线传感器进行自动调整，但往往不够精准，有时候过亮或者过暗一点，但用户也不会太过于在意。新的Adaptive Brightness技术同样通过学习用户使用习惯和偏好来解决这个问题，比如你经常在比较明亮的环境下使用，那么手机会自动的调整到更适合的情况，除了充分考虑到用户周围环境之外，也允许学习用户的习惯，了解你当前的亮度需求。<br>4.网络还有神经网络**<br>    在Android P上，任务可以声明它们估算的数据大小，信号预读取并且指定详细的网络需求–任务载体则可以报告网络是否拥挤或是否不计量。JobScheduler便可按照网络状态管理任务。另一方面，神经网络API在Android 8.1引入，目的是加速Android设备上的机器学习。Android P扩展并改进了这些API, 为9个操作增加了支持，分别是Pad,  BatchToSpaceND, SpaceToBatchND, Transpose, Strided Slice, Mean, Div, Sub和Squeeze。在Android P之后，设备将会对网络有更精细的调整：根据任务需求的数据大小和当前的网络环境。在收费网络里延迟一些网络要求，而在不计费的网络里可以通过消息预获取来得到更好的用户体验。神经网络API的更多操作则是让设备变得更智能、更聪明。智能的一种体现，节省流量和网络速度优化体验的一种好的改进。</p>
-<ol start="5">
-<li>WindDown**<br>   WindDown是一项新功能，它可以在你选择的就寝时间自动打开夜灯和DND模式，让你更容易入睡。新的DND管理模式，它可以停止所有的调用或通知声音，甚至可以在你获得新的声音时弹出预览。“下风”功能实现了这三种功能:在晚上打开夜灯，在DND模式下快速运行，甚至在睡眠时间接近时以灰度显示。所有这些都有一个手势——把你的手机翻过来，它就会自动进入数字健康模式。</li>
-<li>App   Actions：应用程序操作**<pre><code>这类似于你可以通过长时间按下图标来调用应用程序的快捷方式，但考虑到它是谷歌启动程序，它可以为你的手机提供一些建议，因此完全不同。这个特性推荐使用AI进行操作。AI会尝试找出你接下来要做什么，以及你接下来需要什么，当你启动app抽屉时，它会告诉你。根据你的当前地理位置、一天中的某个时间段，甚至是你连接耳机的时候，向你推荐一些东西。还有位于应用程序抽屉中的快捷键可以预测你将要做什么，这样你就可以更快地完成你在手机上要做的事情。例如，如果你通常打开应用程序面板，然后打开手机应用程序，然后给你的好朋友打电话。</code></pre></li>
-<li>应用定时器**<pre><code>设置应用程序的时间限制，当你在指定的时间段内使用它们之后，Android会自动将应用程序的图标变灰——暗示你应该把时间花在使用应用程序以外的事情上。可以自由设置程序的使用时限。</code></pre></li>
-<li>切片App slices**<pre><code>slice为你提供了应用的一部分，Android系统认为这是你在寻找某个应用时需要的功能。例如，如果你在搜索中输入“Hawaii”，一个应用程序切片可能会建议你在谷歌photos应用中查看你最近的夏威夷度假照片。比如你要打车，Slices可以做到这一点，搜索“Lyft”，你就会看到一个能给你提供价格和时间，你可以用来完成预约服务。</code></pre></li>
-<li>辅助功能菜单**<br>在Settings&gt;Accessibility &gt; Accessibility Menu中你可以激活新的辅助功能菜单，该菜单会启用一个图标，您可以点按该图标以执行快速设置，设置最近的应用和音量等操作。</li>
-<li>Android Dashboard**<br>  它告诉你在手机上花了多少时间，以提醒用户尽量少用这个APP，这与iOS系统的“屏幕时间”功能类似，用户能够更好地去管理自己在手机上的使时间。</li>
-<li>Manual   rotation（手动旋转）**<br> 那些很烦的自动旋转现在可能成为过去。现在旋转屏幕也可以是手动的了，在导航栏上有一个指示器可供点击。</li>
-<li>Security   and privacy features（安全和隐私特性）**<br> Android Pie引入了大量新的安全和隐私特性，以帮助您保持数据的安全性。更新中引入的最有用的特性之一是，当你的麦克风、摄像头或传感器空闲时，应用程序将不再能够访问它们。所有应用都使用HTTPS，这是对Android安全用户的肯定。AndroidPie上的所有应用程序默认都使用HTTPS。Android关心您的隐私。</li>
-<li>Do  Not Disturb（免打扰）**<br>它现在将屏幕变成了灰度，同时也明显地禁用了通知，除非有重要联系人来呼叫你。</li>
-<li>Better notification management(更好的通知管理)**<br>可以关闭一系列应用程序的通知，系统甚至可能会要求你在取消通知后停止接收特定类型的通知。让你进入AI时代。您现在可以在消息应用程序中查看图像，并使用smartreply使用notificationshade来回复邮件。此外，Android还会通过分析收到的消息来快速做出反应，或者增加一个action以对消息或从通知直接进入文字的行为作为反映。如：直接在通知栏跟好友聊天；直接在通知栏直接看到好友发送的图片。</li>
-<li>GPS定位之外的WiFi定位**<br>   通过WiFi往返时延室内定位(RTT表示往返时延。在计算机网络中它是一个重要的性能指标，表示从发送端发送数据开始，到发送端收到来自接收端的确认（接收端收到数据后便立即发送确认），总共经历的时延)，简单理解就是室内无线电波(WIFI)、磁场、声音信号或移动设备收集的其他感觉信息来定位建筑物内物体或人的技术。</li>
-<li>支持设备使用插槽连接来显示**<br>  手机可以连接电脑显示屏，来感受大屏显示的魅力。</li>
-<li>多摄像头支持，增加了连接USB摄像头的功能**<pre><code>在Android Pie的设备上，用户可以同时从两个或多个物理摄像头访问数据流。在具有双前置或双后置摄像头的设备上，可实现使用单个摄像头无法实现的创新功能，例如无缝变焦，散景和立体视觉。API还允许调用或融合的摄像机媒体流，以自动在两个或更多摄像机之间切换。相机中的其他改进包括 有助于减少初始捕获期间延迟的其他会话参数，以及允许相机客户端处理各种用例而无需停止和启动相机流的表面共享。我们还添加了基于显示的闪存支持和访问OIS时间戳的 API，以 实现应用级图像稳定和特效。在Android Pie中，多摄像头API 支持具有FULL或 LIMITED功能的设备的单色摄像头 。单色输出通YUV_420_888 Y为灰度,U（Cb）为128，V（Cr）为128 的格式实现 。</code></pre></li>
-<li>黑暗模式**<br>  你可以在Settings&gt;System &gt; Display &gt; Advanced &gt; Devicetheme中选中“Dark“项来打开该功能，来让Android设备上变暗。</li>
-<li>新截图快捷方式**<br>告别默认的Power+ Volume Down按钮组合，现在通过点击Power菜单中的图标可以随时获取屏幕截图。</li>
-<li>仪表板**<br>  Android的仪表板显示显示你花了多少时间使用手机，并通过以下方式将使用数据细分为更全面的部分:一个饼图，表示每天花在应用程序上的时间解锁设备的次数您的通知总数您每天在设备上花费的小时数。</li>
-<li>媒体面板**<br>  由于音量控制专用于振铃器音量，Android的媒体设置现在将在屏幕右侧垂直对齐的滑块中显示音量控制，并且同一媒体面板为。连接到您的Android手机的所有设备显示不同的音量控制设置。</li>
-<li>157个新的Emojis表情**<br>  157是一个很大的数字，包括美洲驼、冷脸、热脸、芒果果、滑板等。谷歌严格遵守其Unicode标准，去掉了中性字符。</li>
-<li>Wi-FiMAC随机化功能**<br>   每次连接到新的Wi-Fi网络时，都会为设备随机分配新的MAC地址。这是第9版Android隐私和安全功能的众多改进之一。</li>
-<li>支持指纹确认的安全事务**<br>  在Android Pie中，系统代表您的应用提供生物识别身份验证对话框。此功能为对话框创建标准化的外观，感觉和位置，使用户更有信心他们对可信赖的生物识别凭据检查器进行身份验证。如果您的应用程序用于FingerprintManager向用户显示指纹身份验证对话框，请切换为使用BiometricPrompt。BiometricPrompt依赖于系统来显示身份验证对话框。它还会更改其行为以适应用户选择的生物识别身份验证的类型。</li>
-<li>改进了JobScheduler以便更好地处理与网络相关的工作。**<br>   从Android Pie开始，JobScheduler可以使用运营商提供的网络状态信号来改善网络相关作业的处理。<br>  JobScheduler可以声明其估计的数据大小，信号预取，并指定详细的网络要求。JobScheduler然后根据网络状态管理工作。例如，当网络发出拥塞信号时， JobScheduler可能会推迟大型网络请求。在未计量的网络上，JobScheduler可以运行预取作业以改善用户体验，例如通过预取标题。<br> 添加作业时，请务必使用setEstimatedNetworkBytes()，setPrefetch()并setRequiredNetwork()在适当时帮助 JobScheduler正确处理工作。当您的作业执行时，请务必使用Network返回的对象JobParameters.getNetwork()。否则，我们可以将隐式使用设备的默认网络，该网络可能无法满足您的要求，从而导致意外的数据使用。</li>
-<li>bitmaps  and drawables使用了新的解码器解码**<br>  Android Pie引入了ImageDecoder类，效率更高效。它提供了一种用于解码图像的现代化方法。使用此类而不是BitmapFactory和BitmapFactory.Options API。ImageDecoder允许new一个Drawable或一个 Bitmap字节缓冲区，文件或URI。要解码图像，请先createSource() 使用编码图像的来源进行调用 。然后，调用decodeDrawable() 或decodeBitmap() 通过传递ImageDecoder.Source 对象来创建一个Drawable]或一个Bitmap。要更改默认设置，请传递OnHeaderDecodedListener给 decodeDrawable()或decodeBitmap()。一旦知道，就ImageDecoder调用onHeaderDecoded()图像的默认宽度和高度。如果编码图像是动画GIF或WebP，则decodeDrawable()返回该类Drawable的实例 AnimatedImageDrawable。我们可以使用不同的方法来设置图像属性：要将解码图像缩放到精确大小，请将目标尺寸传递到 setTargetSize()。您还可以使用样本大小缩放图像。将样本大小直接传递给setTargetSampleSize()。要在缩放图像范围内裁剪图像，请调用 setCrop()。要创建可变位图，请true进入setMutableRequired()。ImageDecoder还可以为图像添加自定义和复杂的效果，如圆角或圆形蒙版。setPostProcessor()与PostProcessor 类的实例一起使用以达到想要的任何绘图效果。</li>
-<li>新的“AnimatedImageDrawable”类：用于在UI中支持本地动画**<pre><code>Android Pie引入了AnimatedImageDrawable用于绘制和显示GIF和WebP动画图像的类。AnimatedImageDrawable类似于 AnimatedVectorDrawable渲染线程驱动动画的方式AnimatedImageDrawable。渲染线程还使用工作线程进行解码，因此解码不会干扰渲染线程上的其他操作。此实现允许您的应用显示动画图像，而无需管理其更新或干扰应用的UI线程上的其他事件。一个AnimatedImageDrawable可以利用的实例进行解码ImageDecoder。</code></pre></li>
-<li>支持HDR VP9视频和HEIF图像压缩**<pre><code>Android Pie增加了对高动态范围（HDR）VP9配置文件2的内置支持，因此我们现在可以通 过YouTube，Play电影和支持HDR的设备上的其他来源播放用户提供支持HDR的电影。Android Pie增加了对平台的HEIF（heic）图像编码的支持。HEIF静态图像样本在MediaMuxer和MediaExtractor类中得到支持HEIF改进了压缩以节省存储和网络数据。借助Android 9设备上的平台支持，您可以轻松地从后端服务器发送和使用HEIF图像。确保您的应用与此数据格式兼容以进行共享和显示后，请在应用中尝试将HEIF作为图像存储格式。您可以使用ImageDecoder或BitmapFactory进行jpeg-to-heic转换以从jpeg获取位图，并且可以使用HeifWriter从YUV字节缓冲区，Surface或Bitmap写入HEIF静止图像。</code></pre></li>
-<li>Autofill框架的进一步改进**<br>(Autofill  Framework最低支持SDK API 26(Android O)+),Demo地址：<a href="https://github.com/googlesamples/android-AutofillFramework，Android" target="_blank" rel="noopener">https://github.com/googlesamples/android-AutofillFramework，Android</a> 9引入了多项改进，自动填充服务可以实现这些改进，以在填写表单时进一步增强用户体验。</li>
-<li>客户端加密备份**<br>  Android Pie增加了对使用客户端密钥加密Android备份的支持。满足以下条件时，将自动启用此支持： 用户已使用Android Pie或更高版本启用了备份。 用户已为其设备设置了屏幕锁定，需要PIN，图案或密码才能解锁。启用此隐私措施后，需要设备的PIN，模式或密码才能从用户设备的备份中恢复数据。</li>
-<li>Material  Design迎来2.0时代**<br>   Android 9.0加入了大量的圆角设计，UI方面的优化，感觉有些鸡肋，在现在各种模仿的设计趋势和各种定制化UI下，许多功能只是看看而已，用不到多少</li>
+<li>全面屏的全面支持<blockquote>
+<ul>
+<li>加入了对刘海屏的支持（谷歌称之为凹口屏幕（display with a cutout）。借助最新的提供的DisplayCutout类，开发者可以找到非功能区域的位置和形状，而非功能区域是不应显示功能的；使用getDisplayCutout（）就可以获取这个区域的详细信息，未来刘海屏手机很有可能成为主流趋势，在前摄像头没有比较好的隐藏方案出现之前，这可能是提高屏占比的好方法。 </li>
+<li>（屏占比=屏幕面积/整机面积）</li>
+</ul>
+</blockquote>
+</li>
+<li>New gesture navigation(新的手势导航栏)<blockquote>
+<ul>
+<li>引入了一种新的基于手势的系统界面，界面下方会有一个小的横线式主屏键，有点类似于iPhone X的手势操作，很多操作逻辑与iPhone X相似、但更人性化，相对来说，iPhone X的“横线”只是个摆设式的提醒UI，而Android 9.0 Pie则赋予它真正的操作能力。在椭圆指示器上滑动可以作为滚动条，但是在新的导航条上仍然有一个返回键。向右滑动可以访问最近的应用，或者向上滑动可以访问你的应用抽屉和应用建议。它在Pixel手机上非常流畅。切换到以前的应用程序，在浏览窗口后，在底部添加一个滑块。 </li>
+</ul>
+</blockquote>
+</li>
+<li>自适应功能<blockquote>
+<ul>
+<li>Adaptive Battery（电量自适应）：更智能的方式来适应电池和屏幕，从而整体改善续航能力。谷歌加入了Adaptive Battery功能，不过这个模式需要单独开启，在该模式下，程序不需要唤醒可以极大的降低资源占用，更关注用户最常用的服务和应用程序，也算是AI技术的应用之一。这样就可以最大限度的降低后台占用，从而提升电池续航能力。这是Android团队与Google DeepMiind团队合作开发的成果，不仅可以预测用户接下来几个小时内将使用的应用程序，而且还包括在当天用户何时会使用哪些应用程序。智能的一种应用。</li>
+<li>Adaptive brightness（亮度自适应）:亮度方面也进行了人工智能升级，通常情况下用户需要手动调节，或者通过光线传感器进行自动调整，但往往不够精准，有时候过亮或者过暗一点，但用户也不会太过于在意。新的Adaptive Brightness技术同样通过学习用户使用习惯和偏好来解决这个问题，比如你经常在比较明亮的环境下使用，那么手机会自动的调整到更适合的情况，除了充分考虑到用户周围环境之外，也允许学习用户的习惯，了解你当前的亮度需求。</li>
+</ul>
+</blockquote>
+</li>
+<li>网络还有神经网络<blockquote>
+<ul>
+<li>在Android P上，任务可以声明它们估算的数据大小，信号预读取并且指定详细的网络需求–任务载体则可以报告网络是否拥挤或是否不计量。JobScheduler便可按照网络状态管理任务。另一方面，神经网络API在Android 8.1引入，目的是加速Android设备上的机器学习。Android P扩展并改进了这些API, 为9个操作增加了支持，分别是Pad,  BatchToSpaceND, SpaceToBatchND, Transpose, Strided Slice, Mean, Div, Sub和Squeeze。在Android P之后，设备将会对网络有更精细的调整：根据任务需求的数据大小和当前的网络环境。在收费网络里延迟一些网络要求，而在不计费的网络里可以通过消息预获取来得到更好的用户体验。神经网络API的更多操作则是让设备变得更智能、更聪明。智能的一种体现，节省流量和网络速度优化体验的一种好的改进。</li>
+</ul>
+</blockquote>
+</li>
+<li>WindDown<blockquote>
+<ul>
+<li>WindDown是一项新功能，它可以在你选择的就寝时间自动打开夜灯和DND模式，让你更容易入睡。新的DND管理模式，它可以停止所有的调用或通知声音，甚至可以在你获得新的声音时弹出预览。“下风”功能实现了这三种功能:在晚上打开夜灯，在DND模式下快速运行，甚至在睡眠时间接近时以灰度显示。所有这些都有一个手势——把你的手机翻过来，它就会自动进入数字健康模式。</li>
+</ul>
+</blockquote>
+</li>
+<li>App Actions：应用程序操作<blockquote>
+<ul>
+<li>这类似于你可以通过长时间按下图标来调用应用程序的快捷方式，但考虑到它是谷歌启动程序，它可以为你的手机提供一些建议，因此完全不同。这个特性推荐使用AI进行操作。AI会尝试找出你接下来要做什么，以及你接下来需要什么，当你启动app抽屉时，它会告诉你。根据你的当前地理位置、一天中的某个时间段，甚至是你连接耳机的时候，向你推荐一些东西。还有位于应用程序抽屉中的快捷键可以预测你将要做什么，这样你就可以更快地完成你在手机上要做的事情。例如，如果你通常打开应用程序面板，然后打开手机应用程序，然后给你的好朋友打电话。</li>
+</ul>
+</blockquote>
+</li>
+<li>应用定时器<blockquote>
+<ul>
+<li>设置应用程序的时间限制，当你在指定的时间段内使用它们之后，Android会自动将应用程序的图标变灰——暗示你应该把时间花在使用应用程序以外的事情上。可以自由设置程序的使用时限。</li>
+</ul>
+</blockquote>
+</li>
+<li>切片App slices<blockquote>
+<ul>
+<li>slice为你提供了应用的一部分，Android系统认为这是你在寻找某个应用时需要的功能。例如，如果你在搜索中输入“Hawaii”，一个应用程序切片可能会建议你在谷歌photos应用中查看你最近的夏威夷度假照片。比如你要打车，Slices可以做到这一点，搜索“Lyft”，你就会看到一个能给你提供价格和时间，你可以用来完成预约服务。</li>
+</ul>
+</blockquote>
+</li>
+<li>辅助功能菜单**<blockquote>
+<ul>
+<li>在Settings&gt;Accessibility &gt; Accessibility Menu中你可以激活新的辅助功能菜单，该菜单会启用一个图标，您可以点按该图标以执行快速设置，设置最近的应用和音量等操作。</li>
+</ul>
+</blockquote>
+</li>
+<li>Android Dashboard<blockquote>
+<ul>
+<li>它告诉你在手机上花了多少时间，以提醒用户尽量少用这个APP，这与iOS系统的“屏幕时间”功能类似，用户能够更好地去管理自己在手机上的使时间。</li>
+</ul>
+</blockquote>
+</li>
+<li>Manual rotation（手动旋转）<blockquote>
+<ul>
+<li>那些很烦的自动旋转现在可能成为过去。现在旋转屏幕也可以是手动的了，在导航栏上有一个指示器可供点击。</li>
+</ul>
+</blockquote>
+</li>
+<li>Security   and privacy features（安全和隐私特性）<blockquote>
+<ul>
+<li>Android Pie引入了大量新的安全和隐私特性，以帮助您保持数据的安全性。更新中引入的最有用的特性之一是，当你的麦克风、摄像头或传感器空闲时，应用程序将不再能够访问它们。所有应用都使用HTTPS，这是对Android安全用户的肯定。AndroidPie上的所有应用程序默认都使用HTTPS。Android关心您的隐私。</li>
+</ul>
+</blockquote>
+</li>
+<li>Do  Not Disturb（免打扰）<blockquote>
+<ul>
+<li>它现在将屏幕变成了灰度，同时也明显地禁用了通知，除非有重要联系人来呼叫你。</li>
+</ul>
+</blockquote>
+</li>
+<li>Better notification management(更好的通知管理)**<blockquote>
+<ul>
+<li>可以关闭一系列应用程序的通知，系统甚至可能会要求你在取消通知后停止接收特定类型的通知。让你进入AI时代。您现在可以在消息应用程序中查看图像，并使用smartreply使用notificationshade来回复邮件。此外，Android还会通过分析收到的消息来快速做出反应，或者增加一个action以对消息或从通知直接进入文字的行为作为反映。如：直接在通知栏跟好友聊天；直接在通知栏直接看到好友发送的图片。</li>
+</ul>
+</blockquote>
+</li>
+<li>GPS定位之外的WiFi定位**<blockquote>
+<ul>
+<li>通过WiFi往返时延室内定位(RTT表示往返时延。在计算机网络中它是一个重要的性能指标，表示从发送端发送数据开始，到发送端收到来自接收端的确认（接收端收到数据后便立即发送确认），总共经历的时延)，简单理解就是室内无线电波(WIFI)、磁场、声音信号或移动设备收集的其他感觉信息来定位建筑物内物体或人的技术。</li>
+</ul>
+</blockquote>
+</li>
+<li>支持设备使用插槽连接来显示**<blockquote>
+<ul>
+<li>手机可以连接电脑显示屏，来感受大屏显示的魅力。</li>
+</ul>
+</blockquote>
+</li>
+<li>多摄像头支持，增加了连接USB摄像头的功能**<blockquote>
+<ul>
+<li>在Android Pie的设备上，用户可以同时从两个或多个物理摄像头访问数据流。在具有双前置或双后置摄像头的设备上，可实现使用单个摄像头无法实现的创新功能，例如无缝变焦，散景和立体视觉。API还允许调用或融合的摄像机媒体流，以自动在两个或更多摄像机之间切换。相机中的其他改进包括 有助于减少初始捕获期间延迟的其他会话参数，以及允许相机客户端处理各种用例而无需停止和启动相机流的表面共享。我们还添加了基于显示的闪存支持和访问OIS时间戳的 API，以 实现应用级图像稳定和特效。在Android Pie中，多摄像头API 支持具有FULL或 LIMITED功能的设备的单色摄像头 。单色输出通YUV_420_888 Y为灰度,U（Cb）为128，V（Cr）为128 的格式实现 。</li>
+</ul>
+</blockquote>
+</li>
+<li>黑暗模式<blockquote>
+<ul>
+<li>你可以在Settings&gt;System &gt; Display &gt; Advanced &gt; Devicetheme中选中“Dark“项来打开该功能，来让Android设备上变暗。</li>
+</ul>
+</blockquote>
+</li>
+<li>新截图快捷方式**<blockquote>
+<ul>
+<li>告别默认的Power+ Volume Down按钮组合，现在通过点击Power菜单中的图标可以随时获取屏幕截图。</li>
+</ul>
+</blockquote>
+</li>
+<li>仪表板**<blockquote>
+<ul>
+<li>Android的仪表板显示显示你花了多少时间使用手机，并通过以下方式将使用数据细分为更全面的部分:一个饼图，表示每天花在应用程序上的时间解锁设备的次数您的通知总数您每天在设备上花费的小时数。</li>
+</ul>
+</blockquote>
+</li>
+<li>媒体面板**<blockquote>
+<ul>
+<li>由于音量控制专用于振铃器音量，Android的媒体设置现在将在屏幕右侧垂直对齐的滑块中显示音量控制，并且同一媒体面板为。连接到您的Android手机的所有设备显示不同的音量控制设置。</li>
+</ul>
+</blockquote>
+</li>
+<li>157个新的Emojis表情**<blockquote>
+<ul>
+<li>157是一个很大的数字，包括美洲驼、冷脸、热脸、芒果果、滑板等。谷歌严格遵守其Unicode标准，去掉了中性字符。</li>
+</ul>
+</blockquote>
+</li>
+<li>Wi-FiMAC随机化功能**<blockquote>
+<ul>
+<li>每次连接到新的Wi-Fi网络时，都会为设备随机分配新的MAC地址。这是第9版Android隐私和安全功能的众多改进之一。</li>
+</ul>
+</blockquote>
+</li>
+<li>支持指纹确认的安全事务**<blockquote>
+<ul>
+<li>在Android Pie中，系统代表您的应用提供生物识别身份验证对话框。此功能为对话框创建标准化的外观，感觉和位置，使用户更有信心他们对可信赖的生物识别凭据检查器进行身份验证。如果您的应用程序用于FingerprintManager向用户显示指纹身份验证对话框，请切换为使用BiometricPrompt。BiometricPrompt依赖于系统来显示身份验证对话框。它还会更改其行为以适应用户选择的生物识别身份验证的类型。</li>
+</ul>
+</blockquote>
+</li>
+<li>改进了JobScheduler以便更好地处理与网络相关的工作。**<blockquote>
+<ul>
+<li>从Android Pie开始，JobScheduler可以使用运营商提供的网络状态信号来改善网络相关作业的处理。</li>
+<li>JobScheduler可以声明其估计的数据大小，信号预取，并指定详细的网络要求。JobScheduler然后根据网络状态管理工作。例如，当网络发出拥塞信号时， JobScheduler可能会推迟大型网络请求。在未计量的网络上，JobScheduler可以运行预取作业以改善用户体验，例如通过预取标题。</li>
+<li>添加作业时，请务必使用setEstimatedNetworkBytes()，setPrefetch()并setRequiredNetwork()在适当时帮助 JobScheduler正确处理工作。当您的作业执行时，请务必使用Network返回的对象JobParameters.getNetwork()。否则，我们可以将隐式使用设备的默认网络，该网络可能无法满足您的要求，从而导致意外的数据使用。</li>
+</ul>
+</blockquote>
+</li>
+<li>bitmaps  and drawables使用了新的解码器解码**<blockquote>
+<ul>
+<li>Android Pie引入了ImageDecoder类，效率更高效。它提供了一种用于解码图像的现代化方法。使用此类而不是BitmapFactory和BitmapFactory.Options API。ImageDecoder允许new一个Drawable或一个 Bitmap字节缓冲区，文件或URI。要解码图像，请先createSource() 使用编码图像的来源进行调用 。然后，调用decodeDrawable() 或decodeBitmap() 通过传递ImageDecoder.Source 对象来创建一个Drawable]或一个Bitmap。要更改默认设置，请传递OnHeaderDecodedListener给 decodeDrawable()或decodeBitmap()。一旦知道，就ImageDecoder调用onHeaderDecoded()图像的默认宽度和高度。如果编码图像是动画GIF或WebP，则decodeDrawable()返回该类Drawable的实例 AnimatedImageDrawable。我们可以使用不同的方法来设置图像属性：要将解码图像缩放到精确大小，请将目标尺寸传递到 setTargetSize()。您还可以使用样本大小缩放图像。将样本大小直接传递给setTargetSampleSize()。要在缩放图像范围内裁剪图像，请调用 setCrop()。要创建可变位图，请true进入setMutableRequired()。ImageDecoder还可以为图像添加自定义和复杂的效果，如圆角或圆形蒙版。setPostProcessor()与PostProcessor 类的实例一起使用以达到想要的任何绘图效果。</li>
+</ul>
+</blockquote>
+</li>
+<li>新的“AnimatedImageDrawable”类：用于在UI中支持本地动画**<blockquote>
+<ul>
+<li>Android Pie引入了AnimatedImageDrawable用于绘制和显示GIF和WebP动画图像的类。AnimatedImageDrawable类似于 AnimatedVectorDrawable渲染线程驱动动画的方式AnimatedImageDrawable。渲染线程还使用工作线程进行解码，因此解码不会干扰渲染线程上的其他操作。此实现允许您的应用显示动画图像，而无需管理其更新或干扰应用的UI线程上的其他事件。一个AnimatedImageDrawable可以利用的实例进行解码ImageDecoder。</li>
+</ul>
+</blockquote>
+</li>
+<li>支持HDR VP9视频和HEIF图像压缩**<blockquote>
+<ul>
+<li>Android Pie增加了对高动态范围（HDR）VP9配置文件2的内置支持，因此我们现在可以通 过YouTube，Play电影和支持HDR的设备上的其他来源播放用户提供支持HDR的电影。Android Pie增加了对平台的HEIF（heic）图像编码的支持。HEIF静态图像样本在MediaMuxer和MediaExtractor类中得到支持HEIF改进了压缩以节省存储和网络数据。借助Android 9设备上的平台支持，您可以轻松地从后端服务器发送和使用HEIF图像。确保您的应用与此数据格式兼容以进行共享和显示后，请在应用中尝试将HEIF作为图像存储格式。您可以使用ImageDecoder或BitmapFactory进行jpeg-to-heic转换以从jpeg获取位图，并且可以使用HeifWriter从YUV字节缓冲区，Surface或Bitmap写入HEIF静止图像。</li>
+</ul>
+</blockquote>
+</li>
+<li>Autofill框架的进一步改进**<blockquote>
+<ul>
+<li>(Autofill  Framework最低支持SDK API 26(Android O)+),Demo地址：<a href="https://github.com/googlesamples/android-AutofillFramework，Android" target="_blank" rel="noopener">https://github.com/googlesamples/android-AutofillFramework，Android</a> 9引入了多项改进，自动填充服务可以实现这些改进，以在填写表单时进一步增强用户体验。</li>
+</ul>
+</blockquote>
+</li>
+<li>客户端加密备份**<blockquote>
+<ul>
+<li>Android Pie增加了对使用客户端密钥加密Android备份的支持。满足以下条件时，将自动启用此支持： 用户已使用Android Pie或更高版本启用了备份。 用户已为其设备设置了屏幕锁定，需要PIN，图案或密码才能解锁。启用此隐私措施后，需要设备的PIN，模式或密码才能从用户设备的备份中恢复数据。</li>
+</ul>
+</blockquote>
+</li>
+<li>Material  Design迎来2.0时代**<blockquote>
+<ul>
+<li>Android 9.0加入了大量的圆角设计，UI方面的优化，感觉有些鸡肋，在现在各种模仿的设计趋势和各种定制化UI下，许多功能只是看看而已，用不到多少</li>
+</ul>
+</blockquote>
+</li>
 </ol>
 </blockquote>
 <h1 id="Android10-0"><a href="#Android10-0" class="headerlink" title="Android10.0"></a>Android10.0</h1><h2 id="Android-Q-隐私更改相关介绍"><a href="#Android-Q-隐私更改相关介绍" class="headerlink" title="Android Q 隐私更改相关介绍"></a>Android Q 隐私更改相关介绍</h2><blockquote>
 <ol>
 <li>存储范围变更<br>Android Q 改变了应用程序访问设备外部存储上文件的方式。通过使用更细粒度的媒体特定权限替换以前的 READ_EXTERNAL_STORAGE 和 WRITE_EXTERNAL_STORAGE权限。</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="2">
 <li>外存中私有目录权限变更<br>Android Q 为每个应用程序提供了一个独立的在外部存储设备的存储沙箱，没有其他应用可以直接访问您应用的沙盒文件。由于文件是私有的，因此访问这些文件不再需要任何权限。<br>并且 Android Q 推荐了获取外部存储私有文件的最佳位置：即Context.getExternalFilesDir（）返回的位置，因为此位置在所有Android版本中表现一致。使用此方法时，请传入与要创建或打开的文件类型对应的媒体环境。例如，要访问或保存app-private图像，请调用Context.getExternalFilesDir（Environment.DIRECTORY_PICTURES）。</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="3">
 <li>公共媒体集合特性<br>定义公共媒体集合：Photos &amp; Videos、Music、 Downloads。<br>APP 无需请求任何权限即可在这些共享集合中创建和修改自己的文件。<br>如果你的APP想创建和修改其他应用已创建的文件，则必须首先请求相应的权限：<br>访问Photos &amp; Videos目录的其他应用程序文件 需要请求 READ_MEDIA_IMAGES 或 READ_MEDIA_VIDEO 权限，具体取决于您的应用程序需要访问的文件类型。<br>访问 Music 共享集合中的其他应用程序文件需要 READ_MEDIA_AUDIO 权限。<br>没有访问Downloads共享集合的权限，您的应用可以访问此集合中自己的文件。但是，要访问此集合中的其他应用程序文件，您必须允许用户使用系统的文件选择器应用程序选择文件。</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="4">
 <li>访问共享集合<br>访问共享集合通过 MediaStore API ，如 MediaStore.Images、MediaStore.Video、MediaStore.Audio、MediaStore.Downloads。<br>需要注意的是：对于 Android Q 上新安装的应用，对 getExternalStoragePublicDirectory（）的调用仅提供对应用已存储在其隔离存储沙箱中的文件的访问权限。要保持对其他应用程序文件的访问权限，请更新应用程序的逻辑以使用MediaStore。</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="5">
 <li>新增 ACCESS_MEDIA_LOCATION 权限<br>一些照片在其数据中会包含位置信息，允许用户查看拍摄照片的位置。由于此位置信息是敏感的，因此我们想获取位置信息需要以下几步：<pre><code>1.将新的 ACCESS_MEDIA_LOCATION 权限添加到AndroidManifest。
 2.获取位置信息</code></pre>photoUri = MediaStore.setRequireOriginal(photoUri);<br>InputStream stream = getContentResolver().openInputStream(photoUri);<br>//从流中读取位置信息</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="6">
 <li>存储新特性兼容<br>target API 级别等于 Android Q 的应用，或者在运行Android Q 的设备上新安装的应用默认都会采取新的权限策略<br>如果你的APP同时满足以下两个条件，则会兼容以前的权限策略：<br>targetSdkVersion &lt;= Android 9<br>你的应用安装在从 Android 9 升级到 Android Q 的设备上<br>识别特定的外部存储设备<br>Android Q 为每个外部存储设备提供唯一的卷名。<br> //获取卷名方式<br>Set<string> volumeNames = MediaStore.getAllVolumeNames(context);</string></li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="7">
 <li>Activity后台活动限制<br>Android Q 对应用未经通知用户就启动进行了极大地限制，在Android Q上运行的应用只有在满足以下一个或多个条件时才能启动活动：<br>该APP具有可见窗口，例如有前台Activity<br>位于前台的另一个 APP 发送属于该应用程序的 PendingIntent。<br>系统发送属于该 APP 的PendingIntent，例如点击通知。<br>系统向应用程序发送广播，例如SECRET_CODE_ACTION。只有应用程序预期启动UI的特定广播才免除。</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="8">
 <li>活动限制的兼容性<br>此行为更改适用于在 Android Q 上运行的所有应用，甚至是针对Android 9（API级别28）或更低级别的应用。但是，只要您的应用以用户互动的直接结果开始活动，您的应用很可能不会受到此更改的影响。实际上，大多数应用程序都不受此更改的影响。<br>此外，Android Q 建议我们 后台应用程序都应创建通知，以便向用户提供信息，而不是直接启动活动。<br>一些特殊情况如：来电或者警报，需要立刻启动 Activity，则可以通过创建高优先级的通知，并提供 fullscreen itent。如何创建高优先级通知？</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="9">
 <li>设备位置权限的访问控制<br>用户可以更好地控制应用何时可以访问设备位置。当在Android Q上运行的应用程序请求位置访问时，会通过对话框的形式给用户进行授权提示。此对话框允许用户授予对两个不同范围的位置访问权限：在使用中（仅限前台）或始终（前台和后台）。<br>新增权限 ACCESS_BACKGROUND_LOCATION<br>如果你的应用针对 Android Q 并且需要在后台运行时访问用户的位置，则必须在应用的清单文件中声明新权限<manifest>
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION">
   <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION">
-</uses-permission></uses-permission></manifest>
-</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="10">
+</uses-permission></uses-permission></manifest></li>
 <li>位置限制的兼容性<br>如果您的应用在 Android Q 上运行但针对的是 Android 9（API级别28）或更低版本，则会出现以下行为：<br>如果你的应用为 ACCESS_FINE_LOCATION 或 ACCESS_COARSE_LOCATION 声明  标记，则系统会在安装期间自动为ACCESS_BACKGROUND_LOCATION 添加  标记。<br>如果你的应用请求 ACCESS_FINE_LOCATION 或 ACCESS_COARSE_LOCATION，系统会自动将 ACCESS_BACKGROUND_LOCATION添加到请求中。<br>虽然你的应用可以请求并接收 ACCESS_BACKGROUND_LOCATION，但用户可以通过选择您的应用仅应在前台访问位置信息来撤消此权限。</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="11">
 <li>允许应用程序降级。<br>当对商店更新后的版本后悔时，可以“回到过去”即回滚到旧版。</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="12">
 <li>对数据和标识符的更改<br>影响在Android Q 上运行的所有应用的更改：<blockquote>
 <ul>
 <li>联系人亲缘关系     从Android Q开始，该平台不再跟踪联系人关系信息。因此，如果您的应用对用户的联系人进行搜索，则结果不再按交互频率排序。“联系人提供程序”指南包含一个通知，说明自Android Q起所有设备上已废弃的特定字段和方法。</li>
@@ -436,12 +576,8 @@
 <li>Android Q更改了默认情况下getCameraCharacteristics（）方法返回的信息的广度。特别是，您的应用必须具有CAMERA权限才能访问此方法的返回值中包含的潜在设备特定元数据。</li>
 <li>启用和禁用Wi-Fi的限制</li>
 <li>在Android Q上运行的应用无法启用或停用Wi-Fi。WifiManager.setWifiEnabled（）方法始终返回false。如果需要，请使用设置面板提示用户启用和禁用Wi-Fi。</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>电话，Wi-Fi，蓝牙API所需的精确位置许可     除非您的应用具有ACCESS_FINE_LOCATION权限，否则在Android Q上运行时，您的应用无法在Wi-Fi，Wi-Fi Aware或蓝牙API中使用多种方法。要查看受影响方法的列表，请参阅隐私附录。</li>
-<li>Wi-Fi网络配置限制     将Wi-Fi网络列表的手动配置限制在系统应用程序中。如果您的应用针对Android Q，则以下方法不再返回有用数据,下面方法将不会返回有效信息： * getConfiguredNetworks（）方法始终返回空List; * addNetwork（）和updateNetwork（） - 始终返回-1     #返回布尔值的每个网络操作 - removeNetwork（），reassociate（），enableNetwork（），disableNetwork（），reconnect（）和disconnect（） - 始终返回false * 物理活动识别 针对 Android Q API 级别运行的应用，Android Q为需要检测用户移动的应用程序（例如步行，骑自行车或车辆）引入了新的ACTIVITY_RECOGNITION运行时权限。这旨在让用户了解设置中如何使用设备传感器数据。</li>
+<li>Wi-Fi网络配置限制     将Wi-Fi网络列表的手动配置限制在系统应用程序中。如果您的应用针对Android Q，则以下方法不再返回有用数据,下面方法将不会返回有效信息： *  getConfiguredNetworks（）方法始终返回空List; *  addNetwork（）和updateNetwork（） - 始终返回-1     #返回布尔值的每个网络操作 - removeNetwork（），reassociate（），enableNetwork（），disableNetwork（），reconnect（）和disconnect（） - 始终返回false *  物理活动识别 针对 Android Q API 级别运行的应用，Android Q为需要检测用户移动的应用程序（例如步行，骑自行车或车辆）引入了新的ACTIVITY_RECOGNITION运行时权限。这旨在让用户了解设置中如何使用设备传感器数据。</li>
 </ul>
 </blockquote>
 <h2 id="Android-Q-行为变更"><a href="#Android-Q-行为变更" class="headerlink" title="Android Q 行为变更"></a>Android Q 行为变更</h2><p>最令我们关心的，还是我们的适配工作。下面，分两部分讲：</p>
