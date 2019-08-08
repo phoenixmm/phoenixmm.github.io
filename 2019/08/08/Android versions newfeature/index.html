@@ -16,7 +16,7 @@
 <meta property="og:description" content="Android各版本引入的新特性">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://phoenixmm.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-08T10:02:31.868Z">
+<meta property="og:updated_time" content="2019-08-08T10:05:33.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android All Versions new features">
 <meta name="twitter:description" content="Android各版本引入的新特性">
@@ -544,8 +544,7 @@
 <li>外存中私有目录权限变更<br>Android Q 为每个应用程序提供了一个独立的在外部存储设备的存储沙箱，没有其他应用可以直接访问您应用的沙盒文件。由于文件是私有的，因此访问这些文件不再需要任何权限。<br>并且 Android Q 推荐了获取外部存储私有文件的最佳位置：即Context.getExternalFilesDir（）返回的位置，因为此位置在所有Android版本中表现一致。使用此方法时，请传入与要创建或打开的文件类型对应的媒体环境。例如，要访问或保存app-private图像，请调用Context.getExternalFilesDir（Environment.DIRECTORY_PICTURES）。</li>
 <li>公共媒体集合特性<br>定义公共媒体集合：Photos &amp; Videos、Music、 Downloads。<br>APP 无需请求任何权限即可在这些共享集合中创建和修改自己的文件。<br>如果你的APP想创建和修改其他应用已创建的文件，则必须首先请求相应的权限：<br>访问Photos &amp; Videos目录的其他应用程序文件 需要请求 READ_MEDIA_IMAGES 或 READ_MEDIA_VIDEO 权限，具体取决于您的应用程序需要访问的文件类型。<br>访问 Music 共享集合中的其他应用程序文件需要 READ_MEDIA_AUDIO 权限。<br>没有访问Downloads共享集合的权限，您的应用可以访问此集合中自己的文件。但是，要访问此集合中的其他应用程序文件，您必须允许用户使用系统的文件选择器应用程序选择文件。</li>
 <li>访问共享集合<br>访问共享集合通过 MediaStore API ，如 MediaStore.Images、MediaStore.Video、MediaStore.Audio、MediaStore.Downloads。<br>需要注意的是：对于 Android Q 上新安装的应用，对 getExternalStoragePublicDirectory（）的调用仅提供对应用已存储在其隔离存储沙箱中的文件的访问权限。要保持对其他应用程序文件的访问权限，请更新应用程序的逻辑以使用MediaStore。</li>
-<li>新增 ACCESS_MEDIA_LOCATION 权限<br>一些照片在其数据中会包含位置信息，允许用户查看拍摄照片的位置。由于此位置信息是敏感的，因此我们想获取位置信息需要以下几步：<pre><code>1.将新的 ACCESS_MEDIA_LOCATION 权限添加到AndroidManifest。
-2.获取位置信息</code></pre>photoUri = MediaStore.setRequireOriginal(photoUri);<br>InputStream stream = getContentResolver().openInputStream(photoUri);<br>//从流中读取位置信息</li>
+<li>新增 ACCESS_MEDIA_LOCATION 权限<br>一些照片在其数据中会包含位置信息，允许用户查看拍摄照片的位置。由于此位置信息是敏感的，因此我们想获取位置信息需要以下几步：<br>1.将新的 ACCESS_MEDIA_LOCATION 权限添加到AndroidManifest。<br>2.获取位置信息<br>photoUri = MediaStore.setRequireOriginal(photoUri);<br>InputStream stream = getContentResolver().openInputStream(photoUri);<br>//从流中读取位置信息</li>
 <li>存储新特性兼容<br>target API 级别等于 Android Q 的应用，或者在运行Android Q 的设备上新安装的应用默认都会采取新的权限策略<br>如果你的APP同时满足以下两个条件，则会兼容以前的权限策略：<br>targetSdkVersion &lt;= Android 9<br>你的应用安装在从 Android 9 升级到 Android Q 的设备上<br>识别特定的外部存储设备<br>Android Q 为每个外部存储设备提供唯一的卷名。<br> //获取卷名方式<br>Set<string> volumeNames = MediaStore.getAllVolumeNames(context);</string></li>
 <li>Activity后台活动限制<br>Android Q 对应用未经通知用户就启动进行了极大地限制，在Android Q上运行的应用只有在满足以下一个或多个条件时才能启动活动：<br>该APP具有可见窗口，例如有前台Activity<br>位于前台的另一个 APP 发送属于该应用程序的 PendingIntent。<br>系统发送属于该 APP 的PendingIntent，例如点击通知。<br>系统向应用程序发送广播，例如SECRET_CODE_ACTION。只有应用程序预期启动UI的特定广播才免除。</li>
 <li>活动限制的兼容性<br>此行为更改适用于在 Android Q 上运行的所有应用，甚至是针对Android 9（API级别28）或更低级别的应用。但是，只要您的应用以用户互动的直接结果开始活动，您的应用很可能不会受到此更改的影响。实际上，大多数应用程序都不受此更改的影响。<br>此外，Android Q 建议我们 后台应用程序都应创建通知，以便向用户提供信息，而不是直接启动活动。<br>一些特殊情况如：来电或者警报，需要立刻启动 Activity，则可以通过创建高优先级的通知，并提供 fullscreen itent。如何创建高优先级通知？</li>
