@@ -2,24 +2,24 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>hexo写博客发布到个人github教程 - Coder on road</title>
+<title>hexo+githubda搭建个人博客教程 - Coder on road</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="目录  前言 准备工作   搭建github博客 创建仓库 绑定域名   配置SSH key 测试是否成功   使用hexo写博客 hexo简介 原理 注意事项 安装 初始化 修改主题 上传之前 上传到github 保留CNAME、README.md等文件 常用hexo命令 写博客 写博客工具 如何让博文列表不显示全部内容     最终效果 参考">
-<meta name="keywords" content="tool">
+    <meta name="description" content="实践的详细步骤">
+<meta name="keywords" content="hexo; github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo写博客发布到个人github教程">
+<meta property="og:title" content="hexo+githubda搭建个人博客教程">
 <meta property="og:url" content="https://phoenixmm.github.io/2019/08/07/hexo写博客发布到github教程/index.html">
 <meta property="og:site_name" content="Coder on road">
-<meta property="og:description" content="目录  前言 准备工作   搭建github博客 创建仓库 绑定域名   配置SSH key 测试是否成功   使用hexo写博客 hexo简介 原理 注意事项 安装 初始化 修改主题 上传之前 上传到github 保留CNAME、README.md等文件 常用hexo命令 写博客 写博客工具 如何让博文列表不显示全部内容     最终效果 参考">
+<meta property="og:description" content="实践的详细步骤">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://phoenixmm.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-07T12:00:01.357Z">
+<meta property="og:updated_time" content="2019-08-08T09:18:30.598Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo写博客发布到个人github教程">
-<meta name="twitter:description" content="目录  前言 准备工作   搭建github博客 创建仓库 绑定域名   配置SSH key 测试是否成功   使用hexo写博客 hexo简介 原理 注意事项 安装 初始化 修改主题 上传之前 上传到github 保留CNAME、README.md等文件 常用hexo命令 写博客 写博客工具 如何让博文列表不显示全部内容     最终效果 参考">
+<meta name="twitter:title" content="hexo+githubda搭建个人博客教程">
+<meta name="twitter:description" content="实践的详细步骤">
 <meta name="twitter:image" content="https://phoenixmm.github.io/images/og_image.png">
 
 
@@ -94,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/Y4.jpeg" alt="hexo写博客发布到个人github教程" height="28">
+                <img src="/images/Y4.jpeg" alt="hexo+githubda搭建个人博客教程" height="28">
             
             </a>
         </div>
@@ -145,13 +145,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-07T10:22:59.000Z">2019-08-07</time>
+                <time class="level-item has-text-grey" datetime="2019-08-07T07:22:59.000Z">2019-08-07</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/tools/">tools</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    24 minutes read (About 3588 words)
+                    24 minutes read (About 3552 words)
                 </span>
                 
                 
@@ -160,11 +164,22 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                hexo写博客发布到个人github教程
+                hexo+githubda搭建个人博客教程
             
         </h1>
         <div class="content">
-            <p>目录</p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用github pages服务搭建博客的好处有：</p>
+<ol>
+<li>全是静态文件，访问速度快；</li>
+<li>免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；</li>
+<li>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；</li>
+<li>数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；</li>
+<li>博客内容可以轻松打包、转移、发布到其它平台；</li>
+<li>等等；<a id="more"></a>
+
+
+</li>
+</ol>
 <ul>
 <li><a href="#前言">前言</a><ul>
 <li><a href="#准备工作">准备工作</a></li>
@@ -197,20 +212,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#最终效果">最终效果</a></li>
-<li><a href="#参考">参考</a></li>
 </ul>
-<a id="more"></a>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用github pages服务搭建博客的好处有：</p>
-<ol>
-<li>全是静态文件，访问速度快；</li>
-<li>免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；</li>
-<li>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；</li>
-<li>数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；</li>
-<li>博客内容可以轻松打包、转移、发布到其它平台；</li>
-<li>等等；</li>
-</ol>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>在开始一切之前，你必须已经：</p>
 <ul>
 <li>有一个github账号，没有的话去注册一个；</li>
@@ -347,7 +349,6 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
 5. 博客内容可以轻松打包、转移、发布到其它平台；
 6. 等等；</code></pre><p>最终效果：</p>
 <p><img src="http://image.liuxianan.com/201608/20160823_184633_653_1893.png" alt></p>
-<h1 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h1><p>可以访问我的git博客来查看效果： <a href="http://mygit.me" target="_blank" rel="noopener">http://mygit.me</a></p>
 
         </div>
         
@@ -355,7 +356,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/tool/">tool</a>
+                    <a class="has-link-grey -link" href="/tags/hexo-github/">hexo; github</a>
                 </div>
             </div>
         </div>
@@ -407,7 +408,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/08/08/Android5.0NewFeature/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/08/08/test html md/">
                 <i class="level-item fas fa-chevron-left"></i>
                 <span class="level-item">test html md</span>
             </a>
@@ -415,8 +416,8 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/07/tools-wiki/">
-                <span class="level-item">Tools wiki</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/07/hello-world/">
+                <span class="level-item">Hello World</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -468,7 +469,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        6
                     </p>
                 </div>
             </div>
@@ -478,7 +479,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
                         Categories
                     </p>
                     <p class="title has-text-weight-normal">
-                        0
+                        3
                     </p>
                 </div>
             </div>
@@ -488,7 +489,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        2
+                        6
                     </p>
                 </div>
             </div>
@@ -585,7 +586,31 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
                 Categories
             </h3>
             <ul class="menu-list">
-            
+            <li>
+        <a class="level is-marginless" href="/categories/android/">
+            <span class="level-start">
+                <span class="level-item">android</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/test/">
+            <span class="level-start">
+                <span class="level-item">test</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/tools/">
+            <span class="level-start">
+                <span class="level-item">tools</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li>
             </ul>
         </div>
     </div>
@@ -597,7 +622,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a>
+        <a href="/tags/android-aosp/" style="font-size: 10px;">android; aosp</a> <a href="/tags/android-handler/" style="font-size: 10px;">android; handler</a> <a href="/tags/hexo-github/" style="font-size: 10px;">hexo; github</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/test-demo/" style="font-size: 10px;">test; demo</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a>
     </div>
 </div>
 
@@ -614,7 +639,64 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
         
         <article class="media">
             
-            <a href="/2019/08/08/Android5.0NewFeature/" class="media-left">
+            <a href="/2019/08/08/Android Handle机制/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android Handler消息机制">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T10:00:59.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/Android Handle机制/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Android Handler消息机制</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/android/">android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/Android versions newfeature/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android All Versions new features">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T07:22:59.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/Android versions newfeature/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Android All Versions new features</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/android/">android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/tools-wiki/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Tools wiki">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T02:15:59.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/tools-wiki/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tools wiki</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/tools/">tools</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/test html md/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="test html md">
                 </p>
@@ -623,9 +705,9 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T02:03:48.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/Android5.0NewFeature/" class="title has-link-black-ter is-size-6 has-text-weight-normal">test html md</a>
+                    <a href="/2019/08/08/test html md/" class="title has-link-black-ter is-size-6 has-text-weight-normal">test html md</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/test/">test</a>
                     </p>
                 </div>
             </div>
@@ -635,54 +717,16 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
             
             <a href="/2019/08/07/hexo写博客发布到github教程/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo写博客发布到个人github教程">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo+githubda搭建个人博客教程">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T10:22:59.000Z">2019-08-07</time></div>
-                    <a href="/2019/08/07/hexo写博客发布到github教程/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo写博客发布到个人github教程</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T07:22:59.000Z">2019-08-07</time></div>
+                    <a href="/2019/08/07/hexo写博客发布到github教程/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo+githubda搭建个人博客教程</a>
                     <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/08/07/tools-wiki/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Tools wiki">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T10:15:59.000Z">2019-08-07</time></div>
-                    <a href="/2019/08/07/tools-wiki/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tools wiki</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/08/07/hello-world/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T10:00:59.000Z">2019-08-07</time></div>
-                    <a href="/2019/08/07/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
-                    <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/tools/">tools</a>
                     </p>
                 </div>
             </div>
@@ -706,7 +750,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
                     <span class="level-item">August 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -725,16 +769,44 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/android-aosp/">
+                        <span class="tag">android; aosp</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/android-handler/">
+                        <span class="tag">android; handler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo-github/">
+                        <span class="tag">hexo; github</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/test/">
                         <span class="tag">test</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/test-demo/">
+                        <span class="tag">test; demo</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/tool/">
                         <span class="tag">tool</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -763,7 +835,64 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
         
         <article class="media">
             
-            <a href="/2019/08/08/Android5.0NewFeature/" class="media-left">
+            <a href="/2019/08/08/Android Handle机制/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android Handler消息机制">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T10:00:59.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/Android Handle机制/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Android Handler消息机制</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/android/">android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/Android versions newfeature/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android All Versions new features">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T07:22:59.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/Android versions newfeature/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Android All Versions new features</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/android/">android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/tools-wiki/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Tools wiki">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T02:15:59.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/tools-wiki/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tools wiki</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/tools/">tools</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/test html md/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="test html md">
                 </p>
@@ -772,9 +901,9 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T02:03:48.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/Android5.0NewFeature/" class="title has-link-black-ter is-size-6 has-text-weight-normal">test html md</a>
+                    <a href="/2019/08/08/test html md/" class="title has-link-black-ter is-size-6 has-text-weight-normal">test html md</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/test/">test</a>
                     </p>
                 </div>
             </div>
@@ -784,54 +913,16 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
             
             <a href="/2019/08/07/hexo写博客发布到github教程/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo写博客发布到个人github教程">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo+githubda搭建个人博客教程">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T10:22:59.000Z">2019-08-07</time></div>
-                    <a href="/2019/08/07/hexo写博客发布到github教程/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo写博客发布到个人github教程</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T07:22:59.000Z">2019-08-07</time></div>
+                    <a href="/2019/08/07/hexo写博客发布到github教程/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo+githubda搭建个人博客教程</a>
                     <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/08/07/tools-wiki/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Tools wiki">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T10:15:59.000Z">2019-08-07</time></div>
-                    <a href="/2019/08/07/tools-wiki/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tools wiki</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/08/07/hello-world/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T10:00:59.000Z">2019-08-07</time></div>
-                    <a href="/2019/08/07/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
-                    <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/tools/">tools</a>
                     </p>
                 </div>
             </div>
@@ -855,7 +946,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
                     <span class="level-item">August 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -874,16 +965,44 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/android-aosp/">
+                        <span class="tag">android; aosp</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/android-handler/">
+                        <span class="tag">android; handler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo-github/">
+                        <span class="tag">hexo; github</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/test/">
                         <span class="tag">test</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/test-demo/">
+                        <span class="tag">test; demo</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/tool/">
                         <span class="tag">tool</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -904,7 +1023,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/Y4.jpeg" alt="hexo写博客发布到个人github教程" height="28">
+                    <img src="/images/Y4.jpeg" alt="hexo+githubda搭建个人博客教程" height="28">
                 
                 </a>
                 <p class="is-size-7">
