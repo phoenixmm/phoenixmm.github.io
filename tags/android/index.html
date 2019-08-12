@@ -2,14 +2,14 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>Tag: android - Coder on road</title>
+<title>Tag: Android - Coder on road</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Coder on road">
-<meta property="og:url" content="https://phoenixmm.github.io/tags/android/index.html">
+<meta property="og:url" content="https://phoenixmm.github.io/tags/Android/index.html">
 <meta property="og:site_name" content="Coder on road">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://phoenixmm.github.io/images/og_image.png">
@@ -139,7 +139,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">android</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Android</a></li>
         </ul>
         </nav>
     </div>
@@ -151,17 +151,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-08T10:00:59.000Z">2019-08-08</time>
+                <time class="level-item has-text-grey" datetime="2019-08-12T06:00:59.000Z">2019-08-12</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/android/">android</a>
+                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    30 minutes read (About 4531 words)
+                    3 minutes read (About 485 words)
                 </span>
                 
                 
@@ -170,89 +170,33 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/08/08/Android Handle机制/">Android Handler消息机制</a>
+                <a class="has-link-black-ter" href="/2019/08/12/Android Job Schedule机制/">Android JobSchedule机制</a>
             
         </h1>
         <div class="content">
-            <ul>
-<li><a href="###简介">简介</a></li>
-<li><a href="###消息发送">消息发送</a></li>
-<li><a href="###消息存储与消息循环">消息存储与消息循环</a></li>
-</ul>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在Android开发中，经常会遇到需要在不同线程之间切换的需要，比如网络请求（Android为了防止出现ANR异常，所以规定在Main Thread中不能进行网络请求，且最好不要进行耗时操作），子线程通信等等。此外，Android在设计之初，为了安全和用户体验考虑，规定了只允许在Main Thread里面进行UI更新，而不能在子线程里面进行，否则会抛出异常。这个时候，就需要用到Android的消息传递机制 — Handler。<br>在Android中，Handler消息传递机制主要依赖于Handler，Message，MessageQueue，Looper。其中：</p>
+            <p>jobScheduler 是一个提供给App 端设定一个满足条件执行的任务，从App 设定一个Job到服务端接受这个job ，到服务端管理这个job，到最终触发这个job 以及重系统中移除，整个流程整体并不太复杂，而是细节计算上有很多点比较让人烦恼，我这里大概将其流程梳理一遍：</p>
 <ul>
-<li>Handler负责消息的发送与接收处理。</li>
-<li>Message负责消息的封装，他本身可以看做消息的载体。</li>
-<li>MessageQueue：是一个消息队列，所有需要发送的消息用类似于链表的形式进行存储，并且依据于消息消费的时间为标志确定存储位置。</li>
-<li>Looper：进行消息循环与消息分发。</li>
+<li>App 创建一个Job，并scheduler该job</li>
+<li>JobSchedulerImpl通过Binder调用，调用到服务端JobSchedulerService端的scheduleAsPackage</li>
+<li>在添加到mJobs集合中之前先搜索系统中是否有相同的Job已经存在，如果存在则先canel掉并，再将其加入到mJobs中</li>
+<li>判断该Job是否有对应的限制条件为其Job 分配对应的Controller 。</li>
+<li>Controllers 中所有的控制器要么是监听广播，要么是注册listener 去监听系统状态改变，当系统状态发生改变则都会去通过回调到JobSchedulerService</li>
+<li>onStateChanged中在发送MSG_CHECK_JOB 消息，处理对应消息，首先判断mReportedActive 是否为true</li>
+<li>将ready好的Job加入到mPendingsJob列表中，然后调用到assignJobsToContextsLocked 核心方法</li>
+<li>在assignJobsToContextsLocked 完成各种计算后，将mActiveService的可以运行的Job，调用executeRunnableJob 方法。</li>
+<li>调用到JobServiceContext 中，开始启动服务bindService。在当服务binder上App端的JobService 服务，回调回onServiceConnected()</li>
+<li>在doServiceBoundLocked() 中调用到handleServiceBoundLocked中通过service.startJob() ,继而通过BinderCall 回调到JobServiceEnginee中，发送消息MSG_EXECUTE_JOB到main线程中</li>
+<li>调用到App 实现的JobService 中onStartjob中，执行App JobService 的具体事物</li>
+<li>App端调用JobFinish，binder call 调用到JobServiceContext ，清理该Job的一些资源和变量，并将其从mJobStore 中的删掉。</li>
 </ul>
+<p>原文链接：<a href="https://blog.csdn.net/u011311586/article/details/83027820" target="_blank" rel="noopener">https://blog.csdn.net/u011311586/article/details/83027820</a> </p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/08/08/Android Handle机制/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-08T07:22:59.000Z">2019-08-08</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/android/">android</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    an hour read (About 10209 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/08/08/Android versions newfeature/">Android All Versions new features</a>
-            
-        </h1>
-        <div class="content">
-            <ul>
-<li><a href="#Android4.0">Android 4.0</a></li>
-<li><a href="#Android5.0">Android 5.0</a></li>
-<li><a href="#Android6.0">Android 6.0</a></li>
-<li><a href="#Android7.0">Android 7.0</a></li>
-<li><a href="#Android8.0">Android 8.0</a></li>
-<li><a href="#Android9.0">Android 9.0</a></li>
-<li><a href="#Android10.0">Android 10.0</a></li>
-</ul>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/08/08/Android versions newfeature/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/08/12/Android Job Schedule机制/#more">Read More</a>
                 </div>
             </div>
         </div>
@@ -311,7 +255,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        7
                     </p>
                 </div>
             </div>
@@ -321,7 +265,7 @@
                         Categories
                     </p>
                     <p class="title has-text-weight-normal">
-                        3
+                        4
                     </p>
                 </div>
             </div>
@@ -331,7 +275,7 @@
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        10
                     </p>
                 </div>
             </div>
@@ -429,6 +373,14 @@
             </h3>
             <ul class="menu-list">
             <li>
+        <a class="level is-marginless" href="/categories/Android/">
+            <span class="level-start">
+                <span class="level-item">Android</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/android/">
             <span class="level-start">
                 <span class="level-item">android</span>
@@ -464,7 +416,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/aosp/" style="font-size: 10px;">aosp</a> <a href="/tags/demo/" style="font-size: 10px;">demo</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/handler/" style="font-size: 10px;">handler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/test/" style="font-size: 20px;">test</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a>
+        <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/JobSchedule/" style="font-size: 10px;">JobSchedule</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/aosp/" style="font-size: 10px;">aosp</a> <a href="/tags/demo/" style="font-size: 10px;">demo</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/handler/" style="font-size: 10px;">handler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/test/" style="font-size: 20px;">test</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a>
     </div>
 </div>
 
@@ -478,6 +430,25 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/08/12/Android Job Schedule机制/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android JobSchedule机制">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-12T06:00:59.000Z">2019-08-12</time></div>
+                    <a href="/2019/08/12/Android Job Schedule机制/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Android JobSchedule机制</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -555,25 +526,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/08/07/hexo写博客发布到github教程/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo+githubda搭建个人博客教程">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T07:22:59.000Z">2019-08-07</time></div>
-                    <a href="/2019/08/07/hexo写博客发布到github教程/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo+githubda搭建个人博客教程</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/tools/">tools</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -592,7 +544,7 @@
                     <span class="level-item">August 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -609,6 +561,20 @@
                 Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Android/">
+                        <span class="tag">Android</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JobSchedule/">
+                        <span class="tag">JobSchedule</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/android/">
@@ -691,6 +657,25 @@
         
         <article class="media">
             
+            <a href="/2019/08/12/Android Job Schedule机制/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android JobSchedule机制">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-12T06:00:59.000Z">2019-08-12</time></div>
+                    <a href="/2019/08/12/Android Job Schedule机制/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Android JobSchedule机制</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/08/08/Android Handle机制/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Android Handler消息机制">
@@ -765,25 +750,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/08/07/hexo写博客发布到github教程/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo+githubda搭建个人博客教程">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T07:22:59.000Z">2019-08-07</time></div>
-                    <a href="/2019/08/07/hexo写博客发布到github教程/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo+githubda搭建个人博客教程</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/tools/">tools</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -802,7 +768,7 @@
                     <span class="level-item">August 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -819,6 +785,20 @@
                 Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Android/">
+                        <span class="tag">Android</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JobSchedule/">
+                        <span class="tag">JobSchedule</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/android/">
@@ -1040,6 +1020,34 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
             <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html> type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
